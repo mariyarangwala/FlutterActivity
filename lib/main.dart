@@ -2,11 +2,12 @@ import 'package:flutter/material.dart';
 
 void main()=> runApp(MaterialApp(
 
-  home: Center(
+  home: Scaffold(
+    body: Center(
       child: Text('Hello World')
     ),
   ),
-);
+));
 
 
 
