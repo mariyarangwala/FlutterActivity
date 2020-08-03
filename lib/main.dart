@@ -14,7 +14,12 @@ class MyApp extends StatelessWidget {
         appBar: AppBar(
           title: Text("State"),
         ),
-        body: Counter(),
+        body: Column(
+          children: [
+            display(),
+            Counter(),
+          ],
+        ),
       )
       );
   }
@@ -23,12 +28,7 @@ class MyApp extends StatelessWidget {
 class display extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    // TODO: implement build
-    return Column(
-      children: <Widget>[
-        Text ("hello"),
-      ],
-    );
+    return Text ("hello");
   }
 
 }
