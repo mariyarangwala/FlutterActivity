@@ -1,7 +1,10 @@
+import 'dart:ui';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-void main()=> runApp(MyApp());
+void main()=> runApp(MyApp(
+));
 
 class MyApp extends StatelessWidget {
   @override
@@ -9,12 +12,25 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar(
-          title: Text("Hello"),
+          title: Text("State"),
         ),
         body: Counter(),
-        ),
+      )
+      );
+  }
+}
+
+class display extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    // TODO: implement build
+    return Column(
+      children: <Widget>[
+        Text ("hello"),
+      ],
     );
   }
+
 }
 
 class Counter extends StatefulWidget {
@@ -25,18 +41,6 @@ class Counter extends StatefulWidget {
 class _CounterState extends State<Counter> {
   int counter = 0;
 
-  void _increment(){
-    setState(() {
-     counter++;
-    });
-  }
-
-  void _decrement(){
-    setState(() {
-      counter--;
-    });
-  }
-
   @override
   Widget build(BuildContext context) {
     return Row(
@@ -44,23 +48,26 @@ class _CounterState extends State<Counter> {
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: <Widget>[
         RaisedButton(
-          onPressed: _increment,
+
+          onPressed: (){
+            setState(() {
+              counter++;
+            });
+          },
           child: Text("+"),
 
         ),
         RaisedButton(
-          onPressed: _decrement,
+          onPressed: (){
+            setState(() {
+              counter--;
+            });
+          },
           child: Text("-"),
         ),
-        Text("count= $counter"),
+        Text("count= $counter")
       ],
-
     );
   }
 }
-class Count extends StatelessWidget{
-  @override
-  Widget build(BuildContext context) {
-    return Column();
-  }
-}
+
