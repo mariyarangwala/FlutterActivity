@@ -1,73 +1,45 @@
-import 'dart:ui';
-
+import 'dart:async';
+import 'Counter.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-void main()=> runApp(MyApp(
-));
 
+
+void main() {
+  runApp(MaterialApp(
+      home:MyApp()
+  ));
+}
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      title: "State",
       home: Scaffold(
         appBar: AppBar(
-          title: Text("State"),
+          title: Text("STREAMS"),
         ),
         body: Column(
-          children: [
-            display(),
-            Counter(),
-          ],
-        ),
-      )
-      );
+        children: <Widget>[
+          SizedBox(height: 100, width: 40),
+          display(),
+          SizedBox(height: 90, width: 40),
+          Align(alignment: Alignment.center),
+          Counter(),
+        ],
+      ),
+      ),
+    );
   }
 }
 
 class display extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Text ("hello");
-  }
-
-}
-
-class Counter extends StatefulWidget {
-  @override
-  _CounterState createState() => _CounterState();
-}
-
-class _CounterState extends State<Counter> {
-  int counter = 0;
-
-  @override
-  Widget build(BuildContext context) {
-    return Row(
-      mainAxisSize: MainAxisSize.max,
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-      children: <Widget>[
-        RaisedButton(
-
-          onPressed: (){
-            setState(() {
-              counter++;
-            });
-          },
-          child: Text("+"),
-
-        ),
-        RaisedButton(
-          onPressed: (){
-            setState(() {
-              counter--;
-            });
-          },
-          child: Text("-"),
-        ),
-        Text("count= $counter")
-      ],
-    );
+    return Text("Hello");
   }
 }
+
+
+
 
